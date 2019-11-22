@@ -135,7 +135,7 @@
 				const dataString = `name=${data.name}&email=${data.email}&message=${data.message}`
 console.log(dataString);
 				$.ajax({
-					url: "./assets/php/contact.php",
+					url: '/assets/php/contact.php',
 					type: "POST",
 					//data: $("#contact-form").serialize(),
 					data: dataString,
