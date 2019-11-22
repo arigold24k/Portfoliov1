@@ -132,18 +132,22 @@
 					message: `Email: ${$("#c_email").val()}. Message: ${$("#c_message").val()}.`
 
 				};
-				const dataString = `name=${data.name}&email=${data.email}&message=${data.message}`
+				const dataString = `name=${data.name}&email=${data.email}&message=${data.message}`;
 console.log(dataString);
-				$.ajax({
-					url: '/assets/php/contact.php',
-					type: "POST",
-					//data: $("#contact-form").serialize(),
-					data: dataString,
-					success: () => {
-						$("#response").show();
-						$("#c_message, #c_email, #c_name").val("");
-					}
-				})
+
+                location.href = "mailto:"+ string("ariel.m.vidal^gmail.com").replace("^", "@") +'&subject=Please contact '+ data.name +'&body='+data.message;
+                window.open("mailto:"+ string("ariel.m.vidal^gmail.com").replace("^", "@") +'&subject=Please contact '+ data.name +'&body='+data.message, '_self');
+
+				// $.ajax({
+				// 	url: '/assets/php/contact.php',
+				// 	type: "POST",
+				// 	//data: $("#contact-form").serialize(),
+				// 	data: dataString,
+				// 	success: () => {
+				// 		$("#response").show();
+				// 		$("#c_message, #c_email, #c_name").val("");
+				// 	}
+				// })
 				// 	.done((res)=>{
 				// 	if(res){
 				// 		console.log(res);
