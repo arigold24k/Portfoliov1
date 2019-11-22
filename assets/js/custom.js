@@ -129,7 +129,7 @@
 				const data = {
 					name: $("#c_name").val(),
 					email: $("#c_email").val(),
-					message: `Email: ${$("#c_email").val()}. \n Message: ${$("#c_message").val()}.`
+					message: `Email: ${$("#c_email").val()}. Message: ${$("#c_message").val()}.`
 
 				};
 				const dataString = `name=${data.name}&email=${data.email}&message=${data.message}`
