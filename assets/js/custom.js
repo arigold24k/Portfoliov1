@@ -132,11 +132,12 @@
 					message: `Email: ${$("#c_email").val()}. Message: ${$("#c_message").val()}.`
 
 				};
+				let d_email = "ariel.m.vidal^gmail.com";
 				const dataString = `name=${data.name}&email=${data.email}&message=${data.message}`;
 console.log(dataString);
 
-                location.href = "mailto:"+ string("ariel.m.vidal^gmail.com").replace("^", "@") +'&subject=Please contact '+ data.name +'&body='+data.message;
-                window.open("mailto:"+ string("ariel.m.vidal^gmail.com").replace("^", "@") +'&subject=Please contact '+ data.name +'&body='+data.message, '_self');
+                //location.href = "mailto:"+ String("ariel.m.vidal^gmail.com").replace("^", "@") +'&subject=Please contact '+ data.name +'&body='+data.message;
+                window.open("mailto:"+ d_email.replace("^", "@") +'&subject=Please contact '+ data.name +'&body='+data.message, '_self');
 
 				// $.ajax({
 				// 	url: '/assets/php/contact.php',
