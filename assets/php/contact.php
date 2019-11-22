@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 
 
  	$name = $_POST["name"];
@@ -9,5 +9,5 @@
     mail($email, "Please contact" .$name, $message, $headers);
 
 
-?>
+?> -->
 
