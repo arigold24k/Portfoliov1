@@ -122,29 +122,65 @@
 		/* ---------------------------------------------- /*
 		 * E-mail validation
 		/* ---------------------------------------------- */
+        $('#contact-form').submit('click', (e) => {
+			e.preventDefault();
 
+			if($("#c_email").val() != ""){
+				const data = {
+					name: $("#c_name").val(),
+					email: $("#c_email").val(),
+					message: `Email: ${$("#c_email").val()}. \n Message: ${$("#c_message").val()}.`
+
+				};
+				const dataString = `name=${data.name}&email=${data.email}&message=${data.message}`
+console.log(dataString);
+				$.ajax({
+					url: "./assets/php/contact.php",
+					type: "POST",
+					//data: $("#contact-form").serialize(),
+					data: dataString,
+					success: () => {
+						$("#response").show();
+						$("#c_message, #c_email, #c_name").val("");
+					}
+				})
+				// 	.done((res)=>{
+				// 	if(res){
+				// 		console.log(res);
+				// 		$("#response").show();
+                 //        $("#c_message, #c_email, #c_name").val("");
+				// 	}
+				// }).fail((err)=>{
+				// 	if(err){
+				// 		$("#response").hide();
+				// 	}
+				// })
+			}
+
+
+		});
 		
 	
 		$("#response").hide();
 		
-		$('#contact-form').submit('click', function(e) {
-		e.preventDefault();
-    	
-    	$(".btn").button('loading');
-    	setTimeout(function() {
-    	
-    	// var $this = $(this);
-        $(".btn").button('reset');
-    	}, 3000);
-
-    	 setTimeout(function() {
-
-       $("#response").show();
- 		$("#c_message, #c_email, #c_name").val("");
-
-		}, 4000);
-
-		});
+		// $('#contact-form').submit('click', function(e) {
+		// e.preventDefault();
+    	//
+    	// $(".btn").button('loading');
+    	// setTimeout(function() {
+    	//
+    	// // var $this = $(this);
+       //  $(".btn").button('reset');
+    	// }, 3000);
+       //
+    	//  setTimeout(function() {
+       //
+       // $("#response").show();
+ 		// $("#c_message, #c_email, #c_name").val("");
+       //
+		// }, 4000);
+       //
+		// });
 
 	
 
