@@ -139,12 +139,12 @@ console.log(dataString);
                 //location.href = "mailto:"+ String("ariel.m.vidal^gmail.com").replace("^", "@") +'&subject=Please contact '+ data.name +'&body='+data.message;
                 var emailWindow = window.open("mailto:"+ d_email.replace("^", "@") + "?cc=" + data.email + "&subject=Please contact "+ data.name +'&body='+data.message, '_self');
 
-                if (emailWindow) {
-                    $("#response").show();
-                    $("#c_name, #c_email, #c_message").val("");
-				}else {
-                    $("#response").hide();
-				}
+                // if (emailWindow) {
+                 //    $("#response").show();
+                 //    $("#c_name, #c_email, #c_message").val("");
+				// }else {
+                 //    $("#response").hide();
+				// }
 
 				// $.ajax({
 				// 	url: '/assets/php/contact.php',
