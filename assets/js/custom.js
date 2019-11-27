@@ -1,4 +1,7 @@
+//import { Email } from 'smtp.js';
 (function($){
+
+
 
 	/* ---------------------------------------------- /*
 	 * Preloader
@@ -134,11 +137,18 @@
 				};
 				let d_email = "ariel.m.vidal^gmail.com";
 				const dataString = `name=${data.name}&email=${data.email}&message=${data.message}`;
-console.log(dataString);
-
+			//console.log(dataString);
+			// 68def8c0-6c99-418e-8f47-99b2d6ce5508
                 //location.href = "mailto:"+ String("ariel.m.vidal^gmail.com").replace("^", "@") +'&subject=Please contact '+ data.name +'&body='+data.message;
-                var emailWindow = window.open("mailto:"+ d_email.replace("^", "@") + "?cc=" + data.email + "&subject=Please contact "+ data.name +'&body='+data.message, '_self');
-
+                //var emailWindow = window.open("mailto:"+ d_email.replace("^", "@") + "?cc=" + data.email + "&subject=Please contact "+ data.name +'&body='+data.message, '_self');
+                Email.send({
+                    SecureToken : "68def8c0-6c99-418e-8f47-99b2d6ce5508",
+                    To : 'ariel.m.vidal@gmail.com',
+                    From : "ariel.m.vidal@gmail.com ",
+                    Subject : `Please Contact ${data.name}.`,
+                    Body : `Please contact ${data.name}, at ${data.email}. Message: ${data.message}`
+                }).then((message) => {if(message === "OK"){$("#response").show(); $("#c_name, #c_email, #c_message").val("");}else{ alert(message);$("#response").hide();}})
+                ;
                 // if (emailWindow) {
                  //    $("#response").show();
                  //    $("#c_name, #c_email, #c_message").val("");
