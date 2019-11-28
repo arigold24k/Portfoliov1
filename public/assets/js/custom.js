@@ -156,7 +156,7 @@
 				// }
                 var currentURL = window.location.origin;
 				$.ajax({
-					url: `${currentURL}/densliame/`,
+					url: `${currentURL}/densliame`,
 					method: "POST",
 					//data: $("#contact-form").serialize(),
 					data: data,
