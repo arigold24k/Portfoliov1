@@ -9,9 +9,9 @@ sendmail = async (name, message, email, cb) => {
         const data = {user: process.env.email, pass: process.env.pass};
         console.log('data from .env file, ', data);
         let transporter = nodemailer.createTransport({
-            // host: "smtp.gmail.com",
-            // port: 465,
-            service: 'gmail',
+             host: "smtp.gmail.com",
+             port: 465,
+            //service: 'gmail',
             secure: true, // true for 465, false for other ports
             auth: data
         });
