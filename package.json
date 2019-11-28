@@ -5,14 +5,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": "git+https://github.com/kamoltip/kamoltip.github.io.git",
   "keywords": [],
   "author": "Ari Vidal <ariel.m.vidal@gmail.com>",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/kamoltip/kamoltip.github.io/issues"
-  },
-  "homepage": "https://github.com/kamoltip/kamoltip.github.io#readme",
   "dependencies": {
     "axios": "^0.19.0",
     "body-parser": "^1.19.0",
