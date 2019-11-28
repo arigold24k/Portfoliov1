@@ -135,48 +135,44 @@
 					message: $("#c_message").val()
 
 				};
-				let d_email = "ariel.m.vidal^gmail.com";
-				const dataString = `name=${data.name}&email=${data.email}&message=${data.message}`;
 			//console.log(dataString);
 			// 68def8c0-6c99-418e-8f47-99b2d6ce5508
                 //location.href = "mailto:"+ String("ariel.m.vidal^gmail.com").replace("^", "@") +'&subject=Please contact '+ data.name +'&body='+data.message;
                 //var emailWindow = window.open("mailto:"+ d_email.replace("^", "@") + "?cc=" + data.email + "&subject=Please contact "+ data.name +'&body='+data.message, '_self');
-                Email.send({
-                    SecureToken : "68def8c0-6c99-418e-8f47-99b2d6ce5508",
-                    To : 'ariel.m.vidal@gmail.com',
-                    From : "ariel.m.vidal@gmail.com ",
-                    Subject : `Please Contact ${data.name}.`,
-                    Body : `Please contact ${data.name}, at ${data.email}. Message: ${data.message}`
-                }).then((message) => {if(message === "OK"){$("#response").show(); $("#c_name, #c_email, #c_message").val("");}else{ alert(message);$("#response").hide();}})
-                ;
+                // Email.send({
+                //     SecureToken : "68def8c0-6c99-418e-8f47-99b2d6ce5508",
+					// port: 587,
+                //     To : 'ariel.m.vidal@gmail.com',
+                //     From : "ariel.m.vidal@gmail.com ",
+                //     Subject : `Please Contact ${data.name}.`,
+                //     Body : `Please contact ${data.name}, at ${data.email}. Message: ${data.message}`
+                // }).then((message) => {if(message === "OK"){$("#response").show(); $("#c_name, #c_email, #c_message").val("");}else{ alert(message);$("#response").hide(); console.log("This is the message, ", message);}})
+                // ;
                 // if (emailWindow) {
                  //    $("#response").show();
                  //    $("#c_name, #c_email, #c_message").val("");
 				// }else {
                  //    $("#response").hide();
 				// }
+                var currentURL = window.location.origin;
+				$.ajax({
+					url: `${currentURL}/densliame/`,
+					method: "POST",
+					//data: $("#contact-form").serialize(),
+					data: data,
 
-				// $.ajax({
-				// 	url: '/assets/php/contact.php',
-				// 	type: "POST",
-				// 	//data: $("#contact-form").serialize(),
-				// 	data: dataString,
-				// 	success: () => {
-				// 		$("#response").show();
-				// 		$("#c_message, #c_email, #c_name").val("");
-				// 	}
-				// })
-				// 	.done((res)=>{
-				// 	if(res){
-				// 		console.log(res);
-				// 		$("#response").show();
-                 //        $("#c_message, #c_email, #c_name").val("");
-				// 	}
-				// }).fail((err)=>{
-				// 	if(err){
-				// 		$("#response").hide();
-				// 	}
-				// })
+				})
+					.done((res)=>{
+					if(res = 'success'){
+						console.log(res);
+                        $('#response').html('Your submission was successful !<br> If you do not hear back with in 24 hours please contact me directly at ariel.m.vidal@gmail.com');
+						$("#response").show();
+                        $("#c_message, #c_email, #c_name").val("");
+					}else{
+						$('#response').html('There was an error sending the message. <br> Please email me directly at ariel.m.vidal@gmail.com');
+                        $("#response").show();
+					}
+				})
 			}
 
 
